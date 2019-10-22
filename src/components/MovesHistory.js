@@ -9,7 +9,7 @@ const MovesHistory = ({stepNumber, history, sortAscend, onClick}) => {
         'Go to game start'; 
       return (
         <li key={move}>
-          <button className = {move === stepNumber ? 'bold-selected-move' : ''} onClick={() => onClick(move)}>{desc}</button>
+          <button className = {move === stepNumber ? 'bold-selected-move border-success moves-btn-padding rounded-pill block-example' : 'border-success moves-btn-padding btn rounded-pill block-example'} onClick={() => onClick(move)}>{desc}</button>
         </li>
       );
     });

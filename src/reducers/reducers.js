@@ -9,6 +9,9 @@ import {
     NEW_WINNER,
     NEW_HISTORY,
     NEW_STEPNUMBER,
+    USER_SIGNUP,
+    USER_LOGIN,
+    USER_LOGOUT
 } from '../actions/actions'
 
 const xIsNext = (state = true, action) => {
@@ -88,6 +91,33 @@ const stepNumber = (state = 0, action) => {
     }
 }
 
+const signUp = (state = {}, action) => {
+  switch (action.type) {
+    case USER_SIGNUP:
+        return action.payload;
+    default:
+      return state;
+  }
+}
+
+const logIn = (state = {}, action) => {
+  switch (action.type) {
+    case USER_LOGIN:
+      return action.payload;
+      default:
+        return state;
+  }
+}
+
+const logOut = (state = {}, action) => {
+  switch (action.type) {
+    case USER_LOGOUT:
+        return !state;
+    default:
+        return state;
+  }
+}
+
 export default combineReducers({
     xIsNext,
     sortAscend,
@@ -95,6 +125,9 @@ export default combineReducers({
     winSquares,
     winner,
     history,
-    stepNumber
+    stepNumber,
+    signUp,
+    logIn,
+    logOut
 });
   

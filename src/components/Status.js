@@ -10,7 +10,7 @@ const Status = ({winner, xIsNext}) => {
     }
 
     return (
-        <div>{status}</div>
+        <div className='bold'>{status}</div>
     );
 };
 

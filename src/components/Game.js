@@ -4,6 +4,7 @@ import GamePlayAgain from '../containers/GamePlayAgain'
 import GameMovesSorting from '../containers/GameMovesSorting'
 import GameStatus from '../containers/GameStatus'
 import GameMovesHistory from '../containers/GameMovesHistory'
+import 'bootstrap/dist/css/bootstrap.css';
 
 function Game() {
   return (
@@ -12,7 +13,7 @@ function Game() {
         <GameBoard></GameBoard>
       </div>
 
-      <div className = 'game-info'>
+      <div className = 'game-info btn'>
         <GamePlayAgain></GamePlayAgain>
         <GameMovesSorting></GameMovesSorting>
         <p></p>

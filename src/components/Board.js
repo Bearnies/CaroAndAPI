@@ -32,7 +32,6 @@ class Board extends React.Component {
         }
       return(
         <div>
-          <p>Cờ Caro VN</p>
           <div>{rows}</div>
         </div>
       ); 

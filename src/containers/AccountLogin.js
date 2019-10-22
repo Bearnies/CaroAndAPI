@@ -45,7 +45,7 @@ export default function AccountLogin() {
           Login
         </Button>
 
-        <Link to="/signup" className='btn btn-primary Signup'>Sign Up</Link>
+        <Link to='/signup' className='btn Signup'>Sign Up</Link>
       </form>
     </div>
   );

@@ -7,6 +7,9 @@ export const IS_ASCENDING = 'IS_ASCENDING'
 export const NEW_WINNER = 'NEW_WINNER'
 export const NEW_HISTORY = 'NEW_HISTORY'
 export const NEW_STEPNUMBER = 'NEW_STEPNUMBER'
+export const USER_SIGNUP = 'USER_SIGNUP'
+export const USER_LOGIN = 'USER_LOGIN'
+export const USER_LOGOUT = 'USER_LOGOUT'
 
 export function nextPlayer() {
   return {
@@ -64,6 +67,26 @@ export function newstepNumber(newstepNumber) {
   return {
     type: 'NEW_STEPNUMBER',
     newstepNumber
+  }
+}
+
+export function userLogin(user) {
+  return {
+    type: 'USER_LOGIN',
+    payload: user
+  }
+}
+
+export function userSignup(user) {
+  return {
+    type: 'USER_SIGNUP',
+    payload: user
+  }
+}
+
+export function userLogout() {
+  return {
+    type: 'USER_LOGOUT'
   }
 }
 

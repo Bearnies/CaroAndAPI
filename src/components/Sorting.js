@@ -4,13 +4,13 @@ const Sorting = ({onClick, isAscending}) => {
     if (isAscending === true)
     {
         return (
-            <button className = 'classExtraBtn' onClick={() => onClick()}>Sort (Descend)</button>
+            <button className = 'classExtraBtn block-example border-danger rounded-pill' onClick={() => onClick()}>Sort (Descend)</button>
         ); 
     }
     else if (isAscending === false)
     {
         return (
-            <button className = 'classExtraBtn' onClick={() => onClick()}>Sort (Ascend)</button>
+            <button className = 'classExtraBtn block-example border-danger rounded-pill' onClick={() => onClick()}>Sort (Ascend)</button>
         ); 
     }
 };

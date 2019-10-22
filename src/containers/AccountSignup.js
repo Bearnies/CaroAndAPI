@@ -3,29 +3,26 @@ import {Button, FormGroup, FormControl, FormLabel} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import "./AccountSignup.css";
 import {useState} from 'react';
+import {useFormInfo} from "../libs/libs";
 
 export default function AccountSignup() {
     //Sử dụng useState để set state, không cần state, setState
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const [info, handleInfoChange] = useFormInfo({
+        username: '',
+        password: '',
+        confirmPassword: ''
+    });
   
     function validateForm() {
       return (
-              username.length > 0 &&
-              password.length > 0 &&
-              password === confirmPassword
+            info.username.length > 0 &&
+            info.password.length > 0 &&
+            info.password === info.confirmPassword
             );
     }
   
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
       event.preventDefault();
-
-      this.setState({ submitted: true });
-      const { user } = this.state;
-      if (user.username && user.password) {
-        this.props.register(user);
-      }
     }
   
     return (
@@ -35,16 +32,16 @@ export default function AccountSignup() {
             <FormLabel>Username</FormLabel>
             <FormControl
               autoFocus
-              value={username}
-              onChange={e => setUsername(e.target.value)}
+              value={info.username}
+              onChange={handleInfoChange}
             />
           </FormGroup>
   
           <FormGroup>
             <FormLabel>Password</FormLabel>
             <FormControl
-              value={password}
-              onChange={e => setPassword(e.target.value)}
+              value={info.password}
+              onChange={handleInfoChange}
               type='password'
             />
           </FormGroup>
@@ -52,8 +49,8 @@ export default function AccountSignup() {
           <FormGroup>
             <FormLabel>Confirm Password</FormLabel>
             <FormControl
-              value={confirmPassword}
-              onChange={e => setConfirmPassword(e.target.value)}
+              value={info.confirmPassword}
+              onChange={handleInfoChange}
               type='password'
             />
           </FormGroup>
@@ -62,7 +59,7 @@ export default function AccountSignup() {
             Sign Up
           </Button>
   
-          <Link to="/login" className='btn btn-primary Cancel'>Cancel</Link>
+          <Link to='/login' className='btn Cancel'>Cancel</Link>
         </form>
       </div>
     );
