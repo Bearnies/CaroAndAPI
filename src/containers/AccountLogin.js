@@ -1,17 +1,19 @@
 import React from 'react';
-import {useState} from 'react';
 import {Button, FormGroup, FormControl, FormLabel} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import "./AccountLogin.css";
+import {useState} from 'react';
 
-export default function Login(props) {
+export default function AccountLogin() {
+  //Sử dụng useState để set state, không cần state, setState
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   function validateForm() {
-    return (username.length > 0 &&
+    return(
+            username.length > 0 &&
             password.length > 0
-            );
+    );
   }
 
   function handleSubmit(event) {
@@ -43,7 +45,7 @@ export default function Login(props) {
           Login
         </Button>
 
-        <Link to="/signup" className='btn btn-primary Signup'>Sign up</Link>
+        <Link to="/signup" className='btn btn-primary Signup'>Sign Up</Link>
       </form>
     </div>
   );
