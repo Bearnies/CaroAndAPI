@@ -1,0 +1,20 @@
+.Login {
+    padding: 200px;
+}
+
+.Signup {
+    background-color: #50C878;
+    border-color: #50C878;
+    width: 300px;
+    margin-top: 5px; 
+}
+
+.Signup:hover {
+    background-color: #50C878;
+    border-color: #50C878;
+}
+
+.Login form {
+    margin: 0 auto;
+    max-width: 300px;
+}
