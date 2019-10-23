@@ -10,7 +10,8 @@ import {
     NEW_HISTORY,
     NEW_STEPNUMBER,
     USER_SIGNUP,
-    USER_LOGIN,
+    USER_LOGIN_SUCCESS,
+    USER_LOGIN_FAILED,
     USER_LOGOUT
 } from '../actions/actions'
 
@@ -100,10 +101,16 @@ const signUp = (state = {}, action) => {
   }
 }
 
-const logIn = (state = {}, action) => {
+const logIn = (state = {loginSuccess: false, loginFailed: false}, action) => {
   switch (action.type) {
-    case USER_LOGIN:
-      return action.payload;
+    case USER_LOGIN_SUCCESS:
+      return Object.assign({}, state, {
+        loginSuccess: action.loggingInSuccess
+      });
+    case USER_LOGIN_FAILED:
+      return Object.assign({}, state, {
+        loginFailed: action.loggingInFailed
+      });
       default:
         return state;
   }

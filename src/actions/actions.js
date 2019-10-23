@@ -8,7 +8,9 @@ export const NEW_WINNER = 'NEW_WINNER'
 export const NEW_HISTORY = 'NEW_HISTORY'
 export const NEW_STEPNUMBER = 'NEW_STEPNUMBER'
 export const USER_SIGNUP = 'USER_SIGNUP'
-export const USER_LOGIN = 'USER_LOGIN'
+//export const USER_LOGIN = 'USER_LOGIN'
+export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
+export const USER_LOGIN_FAILED = 'USER_LOGIN_FAILED'
 export const USER_LOGOUT = 'USER_LOGOUT'
 
 export function nextPlayer() {
@@ -70,10 +72,17 @@ export function newstepNumber(newstepNumber) {
   }
 }
 
-export function userLogin(user) {
+export function userLoginSuccess(loggingInSuccess) {
   return {
-    type: 'USER_LOGIN',
-    payload: user
+    type: 'USER_LOGIN_SUCCESS',
+    loggingInSuccess
+  }
+}
+
+export function userLoginFailed(loggingInFailed) {
+  return {
+    type: 'USER_LOGIN_FAILED',
+    loggingInFailed
   }
 }
 
@@ -87,6 +96,31 @@ export function userSignup(user) {
 export function userLogout() {
   return {
     type: 'USER_LOGOUT'
+  }
+}
+
+function logInAPI(username, password, callback) {
+  setTimeout(() => {
+    if (username === 'abc' && password === '123') {
+      return callback(null);
+    } else {
+      return callback(new Error('Invalid username and password'));
+    }
+  }, 1000);
+}
+
+export function logIn(email, password) {
+  return dispatch => {
+    dispatch(userLoginSuccess(false));
+    dispatch(userLoginFailed(null));
+
+    logInAPI(email, password, error => {
+      if (!error) {
+        dispatch(userLoginSuccess(true));
+      } else {
+        dispatch(userLoginFailed(error));
+      }
+    });
   }
 }
 

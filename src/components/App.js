@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import Game from './Game'
-import AccountLogin from '../containers/AccountLogin';
-import AccountSignup from '../containers/AccountSignup';
+import AccountLogin from './AccountLogin';
+import AccountSignup from './AccountSignup';
 import {
   BrowserRouter as Router,
   Switch,
